@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="724,606" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="724,603" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="53">
+    <scg:List x:TypeArguments="x:String" Capacity="106">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -54,10 +54,11 @@
       <x:String>System.Management.Automation</x:String>
       <x:String>System.Dynamic</x:String>
       <x:String>UiPath.Core.Activities.OCR.Engines</x:String>
+      <x:String>Microsoft.Activities.Extensions.Statements</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="37">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="74">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -95,9 +96,11 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Activities.Extensions</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="512,541" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap:VirtualizedContainerService.HintSize="512,538" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="fileList" />
     </Sequence.Variables>
@@ -114,25 +117,27 @@
         <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles("C:\Users\supor\Desktop\Notas")]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="470,349" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[fileList]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="470,346" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[fileList]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="item" />
           </ActivityAction.Argument>
-          <ui:OpenApplication ApplicationWindow="{x:Null}" Arguments="{x:Null}" TimeoutMS="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Open Application 'acrord32.exe Adobe'" FileName="C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\acrord32.exe" sap:VirtualizedContainerService.HintSize="434,214" sap2010:WorkflowViewState.IdRef="OpenApplication_1" InformativeScreenshot="26abc4bd153ce275da66d8803c709049" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='Adobe Acrobat Reader DC' /&gt;">
+          <ui:OpenApplication ApplicationWindow="{x:Null}" Arguments="{x:Null}" TimeoutMS="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Open Application 'acrord32.exe Adobe'" FileName="C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\acrord32.exe" sap:VirtualizedContainerService.HintSize="434,212" sap2010:WorkflowViewState.IdRef="OpenApplication_1" InformativeScreenshot="26abc4bd153ce275da66d8803c709049" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='Adobe Acrobat Reader DC' /&gt;">
             <ui:OpenApplication.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,2090" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,791" sap2010:WorkflowViewState.IdRef="Sequence_13">
                   <Sequence.Variables>
-                    <Variable x:TypeArguments="x:String" Name="vencimento" />
-                    <Variable x:TypeArguments="x:String" Name="infoDestReme" />
-                    <Variable x:TypeArguments="x:String" Name="pisConfins" />
-                    <Variable x:TypeArguments="x:String" Name="numNota" />
+                    <Variable x:TypeArguments="x:String" Name="tabela1" />
+                    <Variable x:TypeArguments="x:String" Name="tabela2" />
+                    <Variable x:TypeArguments="x:String" Name="tabela3" />
+                    <Variable x:TypeArguments="x:String" Name="tabela4" />
                     <Variable x:TypeArguments="s:String[]" Name="Nota" />
+                    <Variable x:TypeArguments="x:String" Name="numNota" />
+                    <Variable x:TypeArguments="x:String" Name="vencimento" />
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -140,19 +145,19 @@
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" sap2010:Annotation.AnnotationText="Abrindo documento para leitura." DisplayName="Attach Window 'acrord32.exe Adobe'" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="WindowScope_2" InformativeScreenshot="dbefa8d91cfcbbf6881abc729254d4e8" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='Adobe Acrobat Reader DC' /&gt;">
+                  <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" sap2010:Annotation.AnnotationText="Abrindo documento para leitura." DisplayName="Attach Window 'acrord32.exe Adobe'" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="WindowScope_2" InformativeScreenshot="dbefa8d91cfcbbf6881abc729254d4e8" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='Adobe Acrobat Reader DC' /&gt;">
                     <ui:WindowScope.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,892" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,888" sap2010:WorkflowViewState.IdRef="Sequence_11">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,117" sap2010:WorkflowViewState.IdRef="SendHotkey_7" Key="o" KeyModifiers="Ctrl">
+                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="SendHotkey_7" Key="o" KeyModifiers="Ctrl">
                             <ui:SendHotkey.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="295376a3-d9fe-449f-ac16-a9c8be84782a">
                                 <ui:Target.TimeoutMS>
@@ -176,7 +181,7 @@
                               </ui:Target>
                             </ui:TypeInto.Target>
                           </ui:TypeInto>
-                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'Edit'" sap:VirtualizedContainerService.HintSize="334,155" sap2010:WorkflowViewState.IdRef="SendHotkey_8" Key="enter" KeyModifiers="None" SpecialKey="True">
+                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'Edit'" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_8" Key="enter" KeyModifiers="None" SpecialKey="True">
                             <ui:SendHotkey.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f8dd1cb7-c451-4d96-bf2b-340fc304229f" InformativeScreenshot="0d6e7b31743f53909e3d186b3668f134" Selector="&lt;wnd app='acrord32.exe' cls='#32770' title='Abrir' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' aaname='Nome:' /&gt;">
                                 <ui:Target.TimeoutMS>
@@ -188,7 +193,7 @@
                               </ui:Target>
                             </ui:SendHotkey.Target>
                           </ui:SendHotkey>
-                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,117" sap2010:WorkflowViewState.IdRef="SendHotkey_9" Key="h" KeyModifiers="Ctrl">
+                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="SendHotkey_9" Key="h" KeyModifiers="Ctrl">
                             <ui:SendHotkey.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="6243f81b-19c3-4b50-912d-2ed7bcb61aa7">
                                 <ui:Target.TimeoutMS>
@@ -200,7 +205,7 @@
                               </ui:Target>
                             </ui:SendHotkey.Target>
                           </ui:SendHotkey>
-                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,117" sap2010:WorkflowViewState.IdRef="SendHotkey_10" Key="l" KeyModifiers="Ctrl">
+                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="SendHotkey_10" Key="l" KeyModifiers="Ctrl">
                             <ui:SendHotkey.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="55ffddab-264b-4b2d-a47e-40117fbf89e8">
                                 <ui:Target.TimeoutMS>
@@ -223,8 +228,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:WindowScope>
-                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="[item]" />
-                  <Sequence sap2010:Annotation.AnnotationText="Pegando tabelas do documento e passando pra Strings." sap:VirtualizedContainerService.HintSize="334,128" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <Sequence sap2010:Annotation.AnnotationText="Pegando tabelas do documento e passando pra Strings." sap:VirtualizedContainerService.HintSize="334,123" sap2010:WorkflowViewState.IdRef="Sequence_12">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -241,7 +245,7 @@
                         </ui:Target>
                       </ui:GetValue.Target>
                       <ui:GetValue.Value>
-                        <OutArgument x:TypeArguments="x:String">[infoDestReme]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String">[tabela2]</OutArgument>
                       </ui:GetValue.Value>
                     </ui:GetValue>
                     <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="GetValue_10">
@@ -256,7 +260,7 @@
                         </ui:Target>
                       </ui:GetValue.Target>
                       <ui:GetValue.Value>
-                        <OutArgument x:TypeArguments="x:String">[numNota]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String">[tabela4]</OutArgument>
                       </ui:GetValue.Value>
                     </ui:GetValue>
                     <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="TryCatch_2">
@@ -279,7 +283,7 @@
                             </ui:Target>
                           </ui:GetValue.Target>
                           <ui:GetValue.Value>
-                            <OutArgument x:TypeArguments="x:String">[vencimento]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String">[tabela1]</OutArgument>
                           </ui:GetValue.Value>
                         </ui:GetValue>
                       </TryCatch.Try>
@@ -311,7 +315,7 @@
                         </ui:Target>
                       </ui:GetValue.Target>
                       <ui:GetValue.Value>
-                        <OutArgument x:TypeArguments="x:String">[pisConfins]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String">[tabela3]</OutArgument>
                       </ui:GetValue.Value>
                     </ui:GetValue>
                   </Sequence>
@@ -323,114 +327,195 @@
                       <InArgument x:TypeArguments="s:String[]">[new String(8){}]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <If Condition="[(numNota.Substring( (numNota.IndexOf(&quot;Nº.&quot;)+4), (   numNota.IndexOf(&quot;Série&quot;)  - (numNota.IndexOf(&quot;Nº.&quot;)+4)    )       )).Length &gt; 25]" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="If_3">
+                  <Sequence sap:VirtualizedContainerService.HintSize="272,1143" sap2010:WorkflowViewState.IdRef="Sequence_18">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If.Then>
-                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,62" sap2010:WorkflowViewState.IdRef="WriteLine_28" Text="[&quot;Nº da Nota: &quot;+numNota.Substring( (numNota.IndexOf(&quot;Nº&quot;)+3), (   numNota.IndexOf(&quot;Série&quot;)  - (numNota.IndexOf(&quot;Nº&quot;)+3)    )       )]" />
-                    </If.Then>
-                    <If.Else>
-                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,62" sap2010:WorkflowViewState.IdRef="WriteLine_27" Text="[&quot;Nº da Nota: &quot;+numNota.Substring( (numNota.IndexOf(&quot;Nº.&quot;)+4), (   numNota.IndexOf(&quot;Série&quot;)  - (numNota.IndexOf(&quot;Nº.&quot;)+4)    )       )]" />
-                    </If.Else>
-                  </If>
-                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,346" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_33" Text="[item]" />
+                    <If Condition="[(tabela4.Substring( (tabela4.IndexOf(&quot;Nº.&quot;)+4), (   tabela4.IndexOf(&quot;Série&quot;)  - (tabela4.IndexOf(&quot;Nº.&quot;)+4)    )       )).Length &gt; 25]" sap:VirtualizedContainerService.HintSize="230,51" sap2010:WorkflowViewState.IdRef="If_3">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="304,253" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_29" Text="[&quot;Nº da Nota: &quot;+tabela4.Substring( (tabela4.IndexOf(&quot;Nº&quot;)+3), (   tabela4.IndexOf(&quot;Série&quot;)  - (tabela4.IndexOf(&quot;Nº&quot;)+3)    )       )]" />
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[numNota]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[tabela4.Substring( (tabela4.IndexOf("Nº")+3), (   tabela4.IndexOf("Série")  - (tabela4.IndexOf("Nº")+3)    )       )]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap:VirtualizedContainerService.HintSize="304,253" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_30" Text="[&quot;Nº da Nota: &quot;+tabela4.Substring( (tabela4.IndexOf(&quot;Nº.&quot;)+4), (   tabela4.IndexOf(&quot;Série&quot;)  - (tabela4.IndexOf(&quot;Nº.&quot;)+4)    )       )]" />
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[numNota]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[tabela4.Substring( (tabela4.IndexOf("Nº.")+4), (   tabela4.IndexOf("Série")  - (tabela4.IndexOf("Nº.")+4)    )       )]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <WriteLine DisplayName="CNPJ" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_16" Text="[&quot;CPF/CNPJ: &quot;+(tabela2.Substring( (tabela2.IndexOf(&quot;CPF&quot;)+4), (   tabela2.IndexOf(&quot;DATA DA EMISSÃO&quot;)  - (tabela2.IndexOf(&quot;CPF&quot;)+4)    )       )).Replace(&quot; &quot;,&quot;&quot;)]" />
+                    <WriteLine DisplayName="NOME" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_17" Text="[&quot;Nome: &quot;+tabela2.Substring( (tabela2.IndexOf(&quot;SOCIAL&quot;)+7), (   tabela2.IndexOf(&quot;CNPJ&quot;)  - (tabela2.IndexOf(&quot;SOCIAL&quot;)+7)    )       )]" />
+                    <WriteLine DisplayName="CEP" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_18" Text="[&quot;CEP: &quot;+(tabela2.Substring( (tabela2.IndexOf(&quot;CEP&quot;)+4), (   tabela2.IndexOf(&quot;DATA DA SAÍDA&quot;)  - (tabela2.IndexOf(&quot;CEP&quot;)+4)    )       )).Replace(&quot; &quot;,&quot;&quot;)]" />
+                    <If Condition="[tabela1 IsNot Nothing]" sap:VirtualizedContainerService.HintSize="230,51" sap2010:WorkflowViewState.IdRef="If_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="304,253" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_31" Text="[&quot;Vencimento da nota: &quot;+tabela1.Substring( (tabela1.IndexOf(&quot;Venc.&quot;)+6), (   tabela1.IndexOf(&quot;Valor&quot;)  - (tabela1.IndexOf(&quot;Venc.&quot;)+6)    )       )]" />
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[vencimento]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[tabela1.Substring( (tabela1.IndexOf("Venc.")+6), (   tabela1.IndexOf("Valor")  - (tabela1.IndexOf("Venc.")+6)    )       )]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap:VirtualizedContainerService.HintSize="304,253" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_32" Text="Não há vencimento." />
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[vencimento]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">Vazio</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <WriteLine DisplayName="DATA EMISSAO" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_21" Text="[&quot;Data Emissão: &quot;+tabela2.Substring( (tabela2.IndexOf(&quot;EMISSÃO&quot;)+8), (   tabela2.IndexOf(&quot;ENDEREÇO&quot;)  - (tabela2.IndexOf(&quot;EMISSÃO&quot;)+8)    )       )]" />
+                    <WriteLine DisplayName="VALOR TOTAL PRODUTOS" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_22" Text="[&quot;Valor total dos produtos: &quot;+tabela3.Substring( (tabela3.IndexOf(&quot;VALOR TOTAL DOS PRODUTOS&quot;)+25), (   tabela3.IndexOf(&quot;VALOR DO FRETE&quot;)  - (tabela3.IndexOf(&quot;VALOR TOTAL DOS PRODUTOS&quot;)+25)    )       )]" />
+                    <WriteLine DisplayName="VALOR DO PIS" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_23" Text="[&quot;Valor do PIS: &quot;+tabela3.Substring( (tabela3.IndexOf(&quot;VALOR DO PIS&quot;)+13), (   tabela3.IndexOf(&quot;VALOR TOTAL DOS PRODUTOS&quot;)  - (tabela3.IndexOf(&quot;VALOR DO PIS&quot;)+13)    )       )]" />
+                    <WriteLine DisplayName="VALOR COFINS" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_24" Text="[&quot;Valor Cofins: &quot;+tabela3.Substring( (tabela3.IndexOf(&quot;VALOR DA COFINS&quot;)+16), (   tabela3.IndexOf(&quot;VALOR TOTAL DA NOTA&quot;)  - (tabela3.IndexOf(&quot;VALOR DA COFINS&quot;)+16)    )       )]" />
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_25" Text="---------------------------------------------------" />
+                  </Sequence>
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
-                        <ui:AssignOperation Value="{x:Null}" sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">[Nota(0)]</OutArgument>
                           </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[numNota.Replace(" ","")]</InArgument>
+                          </ui:AssignOperation.Value>
                         </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">[Nota(1)]</OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[infoDestReme.Substring( (infoDestReme.IndexOf("CPF")+4), (   infoDestReme.IndexOf("DATA DA EMISSÃO")  - (infoDestReme.IndexOf("CPF")+4)    )       )]</InArgument>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[(tabela2.Substring( (tabela2.IndexOf("CPF")+4), (   tabela2.IndexOf("DATA DA EMISSÃO")  - (tabela2.IndexOf("CPF")+4)    )       )).Replace(" ","")]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">[Nota(2)]</OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[infoDestReme.Substring( (infoDestReme.IndexOf("SOCIAL")+7), (   infoDestReme.IndexOf("CNPJ")  - (infoDestReme.IndexOf("SOCIAL")+7)    )       )]</InArgument>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[tabela2.Substring( (tabela2.IndexOf("SOCIAL")+7), (   tabela2.IndexOf("CNPJ")  - (tabela2.IndexOf("SOCIAL")+7)    )       )]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">[Nota(3)]</OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[infoDestReme.Substring( (infoDestReme.IndexOf("CEP")+4), (   infoDestReme.IndexOf("DATA DA SAÍDA")  - (infoDestReme.IndexOf("CEP")+4)    )       )]</InArgument>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[(tabela2.Substring( (tabela2.IndexOf("CEP")+4), (   tabela2.IndexOf("DATA DA SAÍDA")  - (tabela2.IndexOf("CEP")+4)    )       )).Replace(" ","")]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
-                        <ui:AssignOperation Value="{x:Null}" sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">[Nota(4)]</OutArgument>
                           </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[vencimento.Replace(" ","")]</InArgument>
+                          </ui:AssignOperation.Value>
                         </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">[Nota(5)]</OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[infoDestReme.Substring( (infoDestReme.IndexOf("EMISSÃO")+8), (   infoDestReme.IndexOf("ENDEREÇO")  - (infoDestReme.IndexOf("EMISSÃO")+8)    )       )]</InArgument>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[(tabela2.Substring( (tabela2.IndexOf("EMISSÃO")+8), (   tabela2.IndexOf("ENDEREÇO")  - (tabela2.IndexOf("EMISSÃO")+8)    )       )).Replace(" ","")]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">[Nota(6)]</OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[pisConfins.Substring( (pisConfins.IndexOf("VALOR TOTAL DOS PRODUTOS")+25), (   pisConfins.IndexOf("VALOR DO FRETE")  - (pisConfins.IndexOf("VALOR TOTAL DOS PRODUTOS")+25)    )       )]</InArgument>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[(tabela3.Substring( (tabela3.IndexOf("VALOR TOTAL DOS PRODUTOS")+25), (   tabela3.IndexOf("VALOR DO FRETE")  - (tabela3.IndexOf("VALOR TOTAL DOS PRODUTOS")+25)    )       )).Replace(" ","")]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">[Nota(7)]</OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[pisConfins.Substring( (pisConfins.IndexOf("VALOR DO PIS")+13), (   pisConfins.IndexOf("VALOR TOTAL DOS PRODUTOS")  - (pisConfins.IndexOf("VALOR DO PIS")+13)    )       )]</InArgument>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[(tabela3.Substring( (tabela3.IndexOf("VALOR DO PIS")+13), (   tabela3.IndexOf("VALOR TOTAL DOS PRODUTOS")  - (tabela3.IndexOf("VALOR DO PIS")+13)    )       )).Replace(" ","")]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">[Nota(8)]</OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[pisConfins.Substring( (pisConfins.IndexOf("VALOR DA COFINS")+16), (   pisConfins.IndexOf("VALOR TOTAL DA NOTA")  - (pisConfins.IndexOf("VALOR DA COFINS")+16)    )       )]</InArgument>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[(tabela3.Substring( (tabela3.IndexOf("VALOR DA COFINS")+16), (   tabela3.IndexOf("VALOR TOTAL DA NOTA")  - (tabela3.IndexOf("VALOR DA COFINS")+16)    )       )).Replace(" ","")]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
                       </scg:List>
                     </ui:MultipleAssign.AssignOperations>
-                  </ui:MultipleAssign>
-                  <WriteLine DisplayName="CNPJ" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="WriteLine_16" Text="[&quot;CPF/CNPJ: &quot;+infoDestReme.Substring( (infoDestReme.IndexOf(&quot;CPF&quot;)+4), (   infoDestReme.IndexOf(&quot;DATA DA EMISSÃO&quot;)  - (infoDestReme.IndexOf(&quot;CPF&quot;)+4)    )       )]" />
-                  <WriteLine DisplayName="NOME" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="WriteLine_17" Text="[&quot;Nome: &quot;+infoDestReme.Substring( (infoDestReme.IndexOf(&quot;SOCIAL&quot;)+7), (   infoDestReme.IndexOf(&quot;CNPJ&quot;)  - (infoDestReme.IndexOf(&quot;SOCIAL&quot;)+7)    )       )]" />
-                  <WriteLine DisplayName="CEP" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="WriteLine_18" Text="[&quot;CEP: &quot;+infoDestReme.Substring( (infoDestReme.IndexOf(&quot;CEP&quot;)+4), (   infoDestReme.IndexOf(&quot;DATA DA SAÍDA&quot;)  - (infoDestReme.IndexOf(&quot;CEP&quot;)+4)    )       )]" />
-                  <If Condition="[vencimento IsNot Nothing]" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="If_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If.Then>
-                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,62" sap2010:WorkflowViewState.IdRef="WriteLine_19" Text="[&quot;Vencimento da nota: &quot;+vencimento.Substring( (vencimento.IndexOf(&quot;Venc.&quot;)+6), (   vencimento.IndexOf(&quot;Valor&quot;)  - (vencimento.IndexOf(&quot;Venc.&quot;)+6)    )       )]" />
-                    </If.Then>
-                    <If.Else>
-                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,62" sap2010:WorkflowViewState.IdRef="WriteLine_20" Text="Não há vencimento." />
-                    </If.Else>
-                  </If>
-                  <WriteLine DisplayName="DATA EMISSAO" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="WriteLine_21" Text="[&quot;Data Emissão: &quot;+infoDestReme.Substring( (infoDestReme.IndexOf(&quot;EMISSÃO&quot;)+8), (   infoDestReme.IndexOf(&quot;ENDEREÇO&quot;)  - (infoDestReme.IndexOf(&quot;EMISSÃO&quot;)+8)    )       )]" />
-                  <WriteLine DisplayName="VALOR TOTAL PRODUTOS" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="WriteLine_22" Text="[&quot;Valor total dos produtos: &quot;+pisConfins.Substring( (pisConfins.IndexOf(&quot;VALOR TOTAL DOS PRODUTOS&quot;)+25), (   pisConfins.IndexOf(&quot;VALOR DO FRETE&quot;)  - (pisConfins.IndexOf(&quot;VALOR TOTAL DOS PRODUTOS&quot;)+25)    )       )]" />
-                  <WriteLine DisplayName="VALOR DO PIS" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="WriteLine_23" Text="[&quot;Valor do PIS: &quot;+pisConfins.Substring( (pisConfins.IndexOf(&quot;VALOR DO PIS&quot;)+13), (   pisConfins.IndexOf(&quot;VALOR TOTAL DOS PRODUTOS&quot;)  - (pisConfins.IndexOf(&quot;VALOR DO PIS&quot;)+13)    )       )]" />
-                  <WriteLine DisplayName="VALOR COFINS" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="WriteLine_24" Text="[&quot;Valor Cofins: &quot;+pisConfins.Substring( (pisConfins.IndexOf(&quot;VALOR DA COFINS&quot;)+16), (   pisConfins.IndexOf(&quot;VALOR TOTAL DA NOTA&quot;)  - (pisConfins.IndexOf(&quot;VALOR DA COFINS&quot;)+16)    )       )]" />
-                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="WriteLine_25" Text="---------------------------------------------------" />
+                  </ui:MultipleAssign>
                   <ui:CloseApplication DisplayName="Close Application 'acrord32.exe NOTA'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="CloseApplication_2">
                     <ui:CloseApplication.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9840780d-dba9-492a-bfe0-3de7814dab21" InformativeScreenshot="01b3654a9bd8f336fb3b568bbeb62d90" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' omit:title='NOTA 1.pdf - Adobe Acrobat Reader DC' /&gt;">
