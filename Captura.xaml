@@ -2,11 +2,12 @@
   <x:Members>
     <x:Property Name="out_Tabela" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="in_Input" Type="InArgument(x:String)" />
+    <x:Property Name="out_ValorTotalNota" Type="OutArgument(x:Double)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>724,894</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>815,623</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Captura_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -72,13 +73,13 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Captura" sap:VirtualizedContainerService.HintSize="554,829" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Captura" sap:VirtualizedContainerService.HintSize="418,558" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="512,737" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <Sequence sap:VirtualizedContainerService.HintSize="376,466" sap2010:WorkflowViewState.IdRef="Sequence_10">
       <Sequence.Variables>
         <Variable x:TypeArguments="s:String[]" Name="fileList" />
       </Sequence.Variables>
@@ -87,13 +88,8 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:BuildDataTable DataTable="[out_Tabela]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="470,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;numero_x0020_da_x0020_nota&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;cnpj&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;nome&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;cep&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;vencimento_x0020_da_x0020_nota&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;data_x0020_de_x0020_emissao&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;valor_x0020_total_x0020_dos_x0020_produtos&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;valor_x0020_do_x0020_pis&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;valor_x0020_do_x0020_cofins&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
-      <Assign sap:VirtualizedContainerService.HintSize="470,60" sap2010:WorkflowViewState.IdRef="Assign_7">
-        <Assign.To>
-          <OutArgument x:TypeArguments="s:Type">[out_Tabela.Columns(5).DataType]</OutArgument>
-        </Assign.To>
-      </Assign>
-      <Assign sap:VirtualizedContainerService.HintSize="470,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <ui:BuildDataTable DataTable="[out_Tabela]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;numero_x0020_da_x0020_nota&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;cnpj&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;nome&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;cep&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;vencimento_x0020_da_x0020_nota&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;data_x0020_de_x0020_emissao&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;valor_x0020_total_x0020_dos_x0020_produtos&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;valor_x0020_do_x0020_pis&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;valor_x0020_do_x0020_cofins&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;DateOrder&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+      <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
           <OutArgument x:TypeArguments="s:String[]">[fileList]</OutArgument>
         </Assign.To>
@@ -113,7 +109,7 @@
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,915" sap2010:WorkflowViewState.IdRef="Sequence_9">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="tabela1" />
                       <Variable x:TypeArguments="x:String" Name="tabela2" />
@@ -308,7 +304,7 @@
                         <OutArgument x:TypeArguments="s:String[]">[Nota]</OutArgument>
                       </Assign.To>
                       <Assign.Value>
-                        <InArgument x:TypeArguments="s:String[]">[new String(8){}]</InArgument>
+                        <InArgument x:TypeArguments="s:String[]">[new String(9){}]</InArgument>
                       </Assign.Value>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -316,15 +312,18 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </Assign>
-                    <Sequence sap:VirtualizedContainerService.HintSize="334,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <Sequence sap:VirtualizedContainerService.HintSize="304,1534" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:String" Name="valorTotalNota" />
+                      </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[item]" />
-                      <If Condition="[(tabela4.Substring( (tabela4.IndexOf(&quot;Nº.&quot;)+4), (   tabela4.IndexOf(&quot;Série&quot;)  - (tabela4.IndexOf(&quot;Nº.&quot;)+4)    )       )).Length &gt; 25]" sap:VirtualizedContainerService.HintSize="230,51" sap2010:WorkflowViewState.IdRef="If_1">
+                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[item]" />
+                      <If Condition="[(tabela4.Substring( (tabela4.IndexOf(&quot;Nº.&quot;)+4), (   tabela4.IndexOf(&quot;Série&quot;)  - (tabela4.IndexOf(&quot;Nº.&quot;)+4)    )       )).Length &gt; 25]" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="If_1">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -368,10 +367,10 @@
                           </Sequence>
                         </If.Else>
                       </If>
-                      <WriteLine DisplayName="CNPJ" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[&quot;CPF/CNPJ: &quot;+(tabela2.Substring( (tabela2.IndexOf(&quot;CPF&quot;)+4), (   tabela2.IndexOf(&quot;DATA DA EMISSÃO&quot;)  - (tabela2.IndexOf(&quot;CPF&quot;)+4)    )       )).Replace(&quot; &quot;,&quot;&quot;)]" />
-                      <WriteLine DisplayName="NOME" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;Nome: &quot;+tabela2.Substring( (tabela2.IndexOf(&quot;SOCIAL&quot;)+7), (   tabela2.IndexOf(&quot;CNPJ&quot;)  - (tabela2.IndexOf(&quot;SOCIAL&quot;)+7)    )       )]" />
-                      <WriteLine DisplayName="CEP" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[&quot;CEP: &quot;+(tabela2.Substring( (tabela2.IndexOf(&quot;CEP&quot;)+4), (   tabela2.IndexOf(&quot;DATA DA SAÍDA&quot;)  - (tabela2.IndexOf(&quot;CEP&quot;)+4)    )       )).Replace(&quot; &quot;,&quot;&quot;)]" />
-                      <If Condition="[tabela1 IsNot Nothing]" sap:VirtualizedContainerService.HintSize="230,51" sap2010:WorkflowViewState.IdRef="If_2">
+                      <WriteLine DisplayName="CNPJ" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[&quot;CPF/CNPJ: &quot;+(tabela2.Substring( (tabela2.IndexOf(&quot;CPF&quot;)+4), (   tabela2.IndexOf(&quot;DATA DA EMISSÃO&quot;)  - (tabela2.IndexOf(&quot;CPF&quot;)+4)    )       )).Replace(&quot; &quot;,&quot;&quot;)]" />
+                      <WriteLine DisplayName="NOME" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;Nome: &quot;+tabela2.Substring( (tabela2.IndexOf(&quot;SOCIAL&quot;)+7), (   tabela2.IndexOf(&quot;CNPJ&quot;)  - (tabela2.IndexOf(&quot;SOCIAL&quot;)+7)    )       )]" />
+                      <WriteLine DisplayName="CEP" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[&quot;CEP: &quot;+(tabela2.Substring( (tabela2.IndexOf(&quot;CEP&quot;)+4), (   tabela2.IndexOf(&quot;DATA DA SAÍDA&quot;)  - (tabela2.IndexOf(&quot;CEP&quot;)+4)    )       )).Replace(&quot; &quot;,&quot;&quot;)]" />
+                      <If Condition="[tabela1 IsNot Nothing]" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="If_2">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -415,11 +414,79 @@
                           </Sequence>
                         </If.Else>
                       </If>
-                      <WriteLine DisplayName="DATA EMISSAO" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="[&quot;Data Emissão: &quot;+tabela2.Substring( (tabela2.IndexOf(&quot;EMISSÃO&quot;)+8), (   tabela2.IndexOf(&quot;ENDEREÇO&quot;)  - (tabela2.IndexOf(&quot;EMISSÃO&quot;)+8)    )       )]" />
-                      <WriteLine DisplayName="VALOR TOTAL PRODUTOS" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_10" Text="[&quot;Valor total dos produtos: &quot;+tabela3.Substring( (tabela3.IndexOf(&quot;VALOR TOTAL DOS PRODUTOS&quot;)+25), (   tabela3.IndexOf(&quot;VALOR DO FRETE&quot;)  - (tabela3.IndexOf(&quot;VALOR TOTAL DOS PRODUTOS&quot;)+25)    )       )]" />
-                      <WriteLine DisplayName="VALOR DO PIS" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_11" Text="[&quot;Valor do PIS: &quot;+tabela3.Substring( (tabela3.IndexOf(&quot;VALOR DO PIS&quot;)+13), (   tabela3.IndexOf(&quot;VALOR TOTAL DOS PRODUTOS&quot;)  - (tabela3.IndexOf(&quot;VALOR DO PIS&quot;)+13)    )       )]" />
-                      <WriteLine DisplayName="VALOR COFINS" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_12" Text="[&quot;Valor Cofins: &quot;+tabela3.Substring( (tabela3.IndexOf(&quot;VALOR DA COFINS&quot;)+16), (   tabela3.IndexOf(&quot;VALOR TOTAL DA NOTA&quot;)  - (tabela3.IndexOf(&quot;VALOR DA COFINS&quot;)+16)    )       )]" />
-                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_13" Text="---------------------------------------------------" />
+                      <WriteLine DisplayName="DATA EMISSAO" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="[&quot;Data Emissão: &quot;+tabela2.Substring( (tabela2.IndexOf(&quot;EMISSÃO&quot;)+8), (   tabela2.IndexOf(&quot;ENDEREÇO&quot;)  - (tabela2.IndexOf(&quot;EMISSÃO&quot;)+8)    )       )]" />
+                      <WriteLine DisplayName="VALOR TOTAL PRODUTOS" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_10" Text="[&quot;Valor total dos produtos: &quot;+tabela3.Substring( (tabela3.IndexOf(&quot;VALOR TOTAL DOS PRODUTOS&quot;)+25), (   tabela3.IndexOf(&quot;VALOR DO FRETE&quot;)  - (tabela3.IndexOf(&quot;VALOR TOTAL DOS PRODUTOS&quot;)+25)    )       )]" />
+                      <WriteLine DisplayName="VALOR DO PIS" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_11" Text="[&quot;Valor do PIS: &quot;+tabela3.Substring( (tabela3.IndexOf(&quot;VALOR DO PIS&quot;)+13), (   tabela3.IndexOf(&quot;VALOR TOTAL DOS PRODUTOS&quot;)  - (tabela3.IndexOf(&quot;VALOR DO PIS&quot;)+13)    )       )]" />
+                      <WriteLine DisplayName="VALOR COFINS" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_12" Text="[&quot;Valor Cofins: &quot;+tabela3.Substring( (tabela3.IndexOf(&quot;VALOR DA COFINS&quot;)+16), (   tabela3.IndexOf(&quot;VALOR TOTAL DA NOTA&quot;)  - (tabela3.IndexOf(&quot;VALOR DA COFINS&quot;)+16)    )       )]" />
+                      <If Condition="[(tabela3.Substring( (tabela3.IndexOf(&quot;VALOR TOTAL DA NOTA&quot;)+19), (   tabela3.Length  - (tabela3.IndexOf(&quot;VALOR TOTAL DA NOTA&quot;)+19)    )       )).Length&gt; 25]" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="If_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="304,253" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[valorTotalNota]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[tabela3.Substring( (tabela3.IndexOf("VALOR TOTAL DA NOTA")+19), (   tabela3.IndexOf("TRANSPORTADOR")  - (tabela3.IndexOf("VALOR TOTAL DA NOTA")+19)    )       )]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_18" Text="[&quot;Valor Total da Nota: &quot;+tabela3.Substring( (tabela3.IndexOf(&quot;VALOR TOTAL DA NOTA&quot;)+19), (   tabela3.IndexOf(&quot;TRANSPORTADOR&quot;)  - (tabela3.IndexOf(&quot;VALOR TOTAL DA NOTA&quot;)+19)    )       )]" />
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence sap:VirtualizedContainerService.HintSize="304,253" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[valorTotalNota]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[tabela3.Substring( (tabela3.IndexOf("VALOR TOTAL DA NOTA")+19), (   tabela3.Length  - (tabela3.IndexOf("VALOR TOTAL DA NOTA")+19)    )       )]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_19" Text="[&quot;Valor Total da Nota: &quot;+tabela3.Substring( (tabela3.IndexOf(&quot;VALOR TOTAL DA NOTA&quot;)+19), (   tabela3.Length  - (tabela3.IndexOf(&quot;VALOR TOTAL DA NOTA&quot;)+19)    )       )]" />
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[valorTotalNota]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[valorTotalNota.Replace(".","")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[valorTotalNota]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[valorTotalNota.Replace(",",".")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Double">[out_ValorTotalNota]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Double">[out_ValorTotalNota+Convert.ToDouble(valorTotalNota)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_13" Text="---------------------------------------------------" />
                     </Sequence>
                     <ui:MultipleAssign sap2010:Annotation.AnnotationText="Passando tudo pro Array." DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,82" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                       <ui:MultipleAssign.AssignOperations>
@@ -469,7 +536,7 @@
                               <OutArgument x:TypeArguments="x:String">[Nota(5)]</OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[(tabela2.Substring( (tabela2.IndexOf("EMISSÃO")+8), (   tabela2.IndexOf("ENDEREÇO")  - (tabela2.IndexOf("EMISSÃO")+8)    )       )).Replace(" ","")]</InArgument>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[tabela2.Substring( (tabela2.IndexOf("EMISSÃO")+8), (   tabela2.IndexOf("ENDEREÇO")  - (tabela2.IndexOf("EMISSÃO")+8)    )       )]</InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
@@ -496,6 +563,14 @@
                               <InArgument x:TypeArguments="x:String" xml:space="preserve">[(tabela3.Substring( (tabela3.IndexOf("VALOR DA COFINS")+16), (   tabela3.IndexOf("VALOR TOTAL DA NOTA")  - (tabela3.IndexOf("VALOR DA COFINS")+16)    )       )).Replace(" ","")]</InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[Nota(9)]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[(((tabela2.Substring( (tabela2.IndexOf("EMISSÃO")+8), (   tabela2.IndexOf("ENDEREÇO")  - (tabela2.IndexOf("EMISSÃO")+8)    )       )).Replace(" ","")).Substring(5,3))+(((tabela2.Substring( (tabela2.IndexOf("EMISSÃO")+8), (   tabela2.IndexOf("ENDEREÇO")  - (tabela2.IndexOf("EMISSÃO")+8)    )       )).Replace(" ","")).Substring(1,4))+(((tabela2.Substring( (tabela2.IndexOf("EMISSÃO")+8), (   tabela2.IndexOf("ENDEREÇO")  - (tabela2.IndexOf("EMISSÃO")+8)    )       )).Replace(" ","")).Substring(8,4))]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
                         </scg:List>
                       </ui:MultipleAssign.AssignOperations>
                       <sap:WorkflowViewStateService.ViewState>
@@ -506,7 +581,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:MultipleAssign>
-                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{nota(0).ToString,nota(1).ToString,nota(2).ToString,nota(3).ToString,nota(4).ToString,nota(5).ToString,nota(6).ToString,nota(7).ToString,nota(8).ToString}]" DataTable="[out_Tabela]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{nota(0).ToString,nota(1).ToString,nota(2).ToString,nota(3).ToString,nota(4).ToString,nota(5).ToString,nota(6).ToString,nota(7).ToString,nota(8).ToString,nota(9).ToString}]" DataTable="[out_Tabela]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                     <ui:CloseApplication DisplayName="Close Application 'acrord32.exe NOTA'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
                       <ui:CloseApplication.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9840780d-dba9-492a-bfe0-3de7814dab21" InformativeScreenshot="01b3654a9bd8f336fb3b568bbeb62d90" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' omit:title='NOTA 1.pdf - Adobe Acrobat Reader DC' /&gt;">
@@ -525,7 +600,15 @@
             </ui:OpenApplication>
           </ActivityAction>
         </ui:ForEach.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
       </ui:ForEach>
+      <ui:SortDataTable ColumnName="{x:Null}" DataColumn="{x:Null}" ColumnIndex="[9]" DataTable="[out_Tabela]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Decending" OutputDataTable="[out_Tabela]" SortOrder="Descending" />
+      <ui:RemoveDataColumn Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="9" DataTable="[out_Tabela]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_1" />
     </Sequence>
   </Sequence>
 </Activity>
